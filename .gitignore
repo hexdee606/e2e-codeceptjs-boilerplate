@@ -213,4 +213,4 @@ fabric.properties
 ./outputs
 ./allure-report
 ./allure-results
-./.idea/*
+.idea/
