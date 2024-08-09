@@ -1,0 +1,79 @@
+{
+  "name": "automation-framework",
+  "version": "1.0.0",
+  "description": "A robust automation framework using CodeceptJS with Playwright for end-to-end testing.",
+  "keywords": [
+    "automation",
+    "testing",
+    "codeceptjs",
+    "playwright",
+    "bdd",
+    "cucumber",
+    "chai",
+    "allure"
+  ],
+  "homepage": "https://www.github.com/hexdee606",
+  "license": "CC0-1.0",
+  "author": "hexdee606 <dipenc245@gmail.com>",
+  "contributors": [],
+  "main": "index.js",
+  "directories": {
+    "config": "./config",
+    "custom_helper": "custom_helpers",
+    "inputs": "./inputs",
+    "outputs": "./outputs",
+    "src": "./src",
+    "features": "./src/features",
+    "model": "./src/model",
+    "pages": "./src/pages",
+    "servers": "./src/servers",
+    "services": "./src/services",
+    "step_definitions": "./src/step_definitions"
+  },
+  "scripts": {
+    "test:run": "codeceptjs run --plugins allure --config=./codecept.conf.js",
+    "test:report-serve": "allure serve ./allure-results --clean",
+    "test:debug": "codeceptjs run --debug --grep '@debug' --config=./codecept.conf.js",
+    "test:report-generate": "allure generate ./allure-results --clean -o ./allure-report",
+    "test:e2e": "codeceptjs run --plugins allure --config=./codecept.conf.js",
+    "test:parallel": "codeceptjs run-multiple --all --plugins allure --config=./codecept.conf.js",
+    "test:report-open": "allure open ./allure-report"
+  },
+  "config": {
+    "logLevel": "info"
+  },
+  "dependencies": {
+    "@codeceptjs/configure": "^1.0.1",
+    "axios": "^1.7.3",
+    "chai": "^4.5.0",
+    "codeceptjs": "^3.6.5",
+    "cucumber": "^6.0.7",
+    "exceljs": "^4.4.0",
+    "import-export": "^1.0.1",
+    "mongoose": "^8.5.2",
+    "playwright": "^1.45.3",
+    "puppeteer-core": "^22.15.0"
+  },
+  "devDependencies": {
+    "@codeceptjs/allure-legacy": "^1.0.2",
+    "@types/node": "^22.1.0",
+    "allure-commandline": "^2.29.0",
+    "allure-playwright": "^3.0.0-beta.7",
+    "codeceptjs-browserlogs-plugin": "^1.0.5",
+    "debug": "^4.3.6",
+    "moment": "^2.30.1",
+    "eslint": "9.8.0"
+  },
+  "engines": {
+    "node": ">=20.16.0",
+    "npm": ">=10.8.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hexdee606/automation-framework.git"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  },
+  "workspaces": []
+}
