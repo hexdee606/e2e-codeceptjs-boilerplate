@@ -44,6 +44,7 @@
   },
   "dependencies": {
     "@codeceptjs/configure": "^1.0.1",
+    "@codeceptjs/helper": "^2.0.4",
     "axios": "^1.7.3",
     "chai": "^4.5.0",
     "codeceptjs": "^3.6.5",
@@ -61,8 +62,8 @@
     "allure-playwright": "^3.0.0-beta.7",
     "codeceptjs-browserlogs-plugin": "^1.0.5",
     "debug": "^4.3.6",
-    "moment": "^2.30.1",
-    "eslint": "^9.8.0"
+    "eslint": "^9.8.0",
+    "moment": "^2.30.1"
   },
   "engines": {
     "node": ">=20.16.0",
