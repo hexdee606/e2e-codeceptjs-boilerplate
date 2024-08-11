@@ -221,3 +221,4 @@ fabric.properties
 ./outputs
 ./allure-report
 ./allure-results
+./custom_helpers/new.js
