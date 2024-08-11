@@ -14,7 +14,7 @@ Use this section to tell people about which versions of your project are current
 If you discover a security vulnerability in this project, please report it as soon as possible. Your report helps us improve the security of the project.
 
 1. **Report a Vulnerability:**
-   - **Email:** Send an email to [dipenc245@gmail.com](mailto:dipenc245@gmail.com) with the details of the vulnerability.
+   - **Email:** Send an email to [hexdee606](mailto:hexdee606@gmail.com) with the details of the vulnerability.
    - **Details to Include:** Please include a description of the vulnerability, steps to reproduce it, and any other relevant information.
 
 2. **Response Time:**
