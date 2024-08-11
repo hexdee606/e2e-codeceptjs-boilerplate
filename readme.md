@@ -1,393 +1,297 @@
-# Automation Framework with CodeceptJS, Playwright, and CucumberJS
+# 🚀 Automation Framework with CodeceptJS, Playwright, and CucumberJS
+
+![Under Development](https://img.shields.io/badge/status-under--development-yellow)
+![Playwright](https://img.shields.io/badge/playwright-v1.45.3-blue?logo=playwright)
+![CodeceptJS](https://img.shields.io/badge/codeceptjs-v3.6.5-green?logo=codeceptjs)
+![CucumberJS](https://img.shields.io/badge/cucumber-v6.0.7-brightgreen?logo=cucumber)
+![Node](https://img.shields.io/badge/node-%3E%3D20.16.0-orange?logo=node.js)
+![NPM](https://img.shields.io/badge/npm-%3E%3D10.8.1-red?logo=npm)
+
+![Axios](https://img.shields.io/badge/axios-v1.7.3-blue?logo=axios)
+![Chai](https://img.shields.io/badge/chai-v4.5.0-red?logo=chai)
+![ExcelJS](https://img.shields.io/badge/exceljs-v4.4.0-yellow?logo=exceljs)
+![Import-Export](https://img.shields.io/badge/import--export-v1.0.1-lightgrey?logo=import-export)
+![Mongoose](https://img.shields.io/badge/mongoose-v8.5.2-green?logo=mongoose)
+![Puppeteer-Core](https://img.shields.io/badge/puppeteer--core-v22.15.0-lightblue?logo=puppeteer)
+
+![Allure-Legacy](https://img.shields.io/badge/allure--legacy-v1.0.2-brightgreen?logo=allure)
+![Types-Node](https://img.shields.io/badge/@types--node-v22.1.0-blue?logo=typescript)
+![Allure-Commandline](https://img.shields.io/badge/allure--commandline-v2.29.0-orange?logo=allure)
+![Allure-Playwright](https://img.shields.io/badge/allure--playwright-v3.0.0--beta.7-yellow?logo=allure)
+![BrowserLogs-Plugin](https://img.shields.io/badge/browserlogs--plugin-v1.0.5-red?logo=browserlogs)
+![Debug](https://img.shields.io/badge/debug-v4.3.6-lightgrey?logo=debug)
+![Moment](https://img.shields.io/badge/moment-v2.30.1-blue?logo=moment)
+![ESLint](https://img.shields.io/badge/eslint-v9.8.0-purple?logo=eslint)
+
+
+## 📖 Table of Contents
+
+- [Introduction](#introduction)
+- [Prerequisites](#prerequisites)
+- [Project Setup](#project-setup)
+- [Configuration](#configuration)
+  - [CodeceptJS Configuration](#codeceptjs-configuration)
+  - [Playwright Configuration](#playwright-configuration)
+  - [Plugins Configuration](#plugins-configuration)
+- [Writing Tests](#writing-tests)
+  - [Example Test Scenario](#example-test-scenario)
+  - [Step Definitions](#step-definitions)
+- [Running Tests](#running-tests)
+- [Test Reporting](#test-reporting)
+  - [Mochawesome Reports](#mochawesome-reports)
+  - [Allure Reports](#allure-reports)
+- [Debugging and Troubleshooting](#debugging-and-troubleshooting)
+- [Contributing](#contributing)
+- [Code of Conduct](#code-of-conduct)
+- [Support](#support)
+- [License](#license)
 
 ## Introduction
 
-Welcome to the **Automation Framework**, a robust testing framework built using [CodeceptJS](https://codecept.io), [Playwright](https://playwright.dev), and [CucumberJS](https://cucumber.io). This framework aims to provide a seamless integration for automated testing of web applications, combining the best of modern testing technologies.
+Welcome to the **Automation Framework**, a robust setup built using [CodeceptJS](https://codecept.io), [Playwright](https://playwright.dev), and [CucumberJS](https://cucumber.io). This framework is designed for seamless integration and automated testing of web applications.
 
-### What is CodeceptJS?
+## Prerequisites
 
-**CodeceptJS** is a popular end-to-end testing framework designed for simplicity and ease of use. It provides a BDD-style syntax and supports multiple backends like WebDriver, Puppeteer, and Playwright, making it highly versatile for web testing.
+Before setting up the framework, ensure you have the following installed:
 
-### What is Playwright?
+- **Node.js**: Version 14.x or higher (Recommended: >= 20.16.0)
+- **NPM**: Version 6.x or higher (Recommended: >= 10.8.1)
+- **Git**: For version control and cloning the repository
 
-**Playwright** is a modern web automation library by Microsoft, built to support all browsers (Chromium, Firefox, and WebKit) with a single API. It's known for its fast execution and ability to handle complex web applications, making it an excellent choice for automated testing.
+Verify installation by running:
 
-### What is CucumberJS?
+```bash
+node -v
+npm -v
+git --version
+```
 
-**CucumberJS** is a JavaScript implementation of the popular Cucumber framework, enabling Behavior-Driven Development (BDD). It allows writing tests in a natural language style, using Gherkin syntax, making tests easier to read and understand.
+## Project Setup
 
-## Why Use CodeceptJS, Playwright, and CucumberJS Together?
+### Cloning the Repository
 
-Combining these technologies allows developers to leverage the strengths of each:
+Clone the project repository to your local machine:
 
-- **CodeceptJS** provides a unified and elegant API for writing tests, supporting multiple backends, and integrating seamlessly with Playwright.
-- **Playwright** offers fast and reliable browser automation, handling complex interactions with ease.
-- **CucumberJS** enables writing human-readable tests, promoting collaboration between technical and non-technical team members.
+```bash
+git clone https://github.com/hexdee606/e2e-codeceptjs-boilerplate.git
+cd e2e-codeceptjs-boilerplate
+```
 
-This combination results in a powerful, flexible, and maintainable testing framework suitable for modern web applications.
+### Installing Dependencies
 
-## Project Structure
+Install project dependencies using npm:
 
-Below is the detailed structure of the framework, including an explanation of each file and directory listed:
+```bash
+npm install
+```
 
-### Configuration Files
+### Configuring Playwright
 
-#### `codecept.conf.js`
+Install necessary browser binaries for Playwright:
 
-The central configuration file for CodeceptJS. It includes settings for output directories, helper configurations, plugins, and more.
+```bash
+npx playwright install
+```
+
+### Running Tests
+
+To run the test suite, use:
+
+```bash
+npm test
+```
+
+## Configuration
+
+### CodeceptJS Configuration
+
+The central configuration file is `codecept.conf.js`, where you define test settings, helpers, and plugins.
 
 ```javascript
-const path = require('path');
-const playwrightConfig = require('./config/playwright.conf');
-const restConfig = require('./config/rest.conf');
-const graphqlConfig = require('./config/graphql.conf');
-const pluginsConfig = require('./config/plugins.conf');
-const multipleConfig = require('./config/multiple.conf');
-const gherkinConfig = require('./config/gherkin.conf');
-const includeConfig = require('./config/include.conf');
-const mochaConfig = require('./config/mocha.conf');
-
 exports.config = {
-    output: './outputs',
-    helpers: {
-        Playwright: playwrightConfig,
-        REST: restConfig,
-        GraphQL: graphqlConfig,
-        FileSystem: {}
-    },
-    keepBrowserOpen: false,
-    mocha: mochaConfig,
-    plugins: pluginsConfig,
-    bootstrap: null,
-    teardown: null,
-    hooks: [],
-    name: 'automation-framework',
-    timeout: 15000,
-    gherkin: gherkinConfig,
-    include: includeConfig,
-    stepTimeout: 5000,
-    retryFailedStep: {
-        enabled: true,
-        retries: 2
-    },
-    multiple: multipleConfig,
+  output: './outputs',
+  helpers: {
+    Playwright: require('./config/playwright.conf'),
+    REST: require('./config/rest.conf'),
+    GraphQL: require('./config/graphql.conf'),
+    FileSystem: {}
+  },
+  include: require('./config/include.conf'),
+  mocha: require('./config/mocha.conf'),
+  bootstrap: null,
+  plugins: require('./config/plugins.conf'),
+  timeout: 15000,
+  gherkin: require('./config/gherkin.conf'),
+  stepTimeout: 5000,
+  retryFailedStep: {
+    enabled: true,
+    retries: 2
+  },
+  multiple: require('./config/multiple.conf'),
+  name: 'automation-framework'
 };
 ```
 
-- **Purpose**: Defines the configuration settings for the entire framework, including paths, helper methods, plugins, and test execution parameters.
-- **Usage**: Modify this file to change the configuration of the testing framework.
+### Playwright Configuration
 
-#### `jsconfig.json`
+Located in `config/playwright.conf.js`, this file contains browser settings like headless mode, browser type, and timeouts.
 
-Configures the JavaScript project settings, enabling support for JavaScript in editors and IDEs.
-
-```json
-{
-  "compilerOptions": {
-    "allowJs": true
-  }
-}
+```javascript
+module.exports = {
+  url: 'http://localhost',
+  show: false, // Set to true to show the browser during testing
+  browser: 'chromium', // Can be 'chromium', 'firefox', 'webkit'
+  waitForTimeout: 15000, // Default wait time
+  restart: true, // Restart the browser between tests
+  windowSize: '1280x1024'
+};
 ```
 
-- **Purpose**: Ensures compatibility with JavaScript tools and editors by allowing JavaScript code within the project.
-- **Usage**: Update this file to change JavaScript compiler options.
+### Plugins Configuration
 
-#### Configuration Directory (`config/`)
+The plugins used in this framework are configured in `config/plugins.conf.js`:
 
-Contains specific configuration files for various components of the framework.
+```javascript
+module.exports = {
+  allure: {
+    enabled: true,
+    outputDir: './outputs/allure-results',
+    require: '@codeceptjs/allure-legacy'
+  },
+  retryFailedStep: {
+    enabled: true,
+    retries: 3
+  },
+  stepByStepReport: {
+    enabled: true,
+    screenshotsForAllFailures: true,
+    onFail: true
+  },
+  screenshotOnFail: {
+    enabled: true,
+    path: './outputs/screenshots',
+    fullPage: true,
+    uniqueNames: true,
+    keepSuccessfulScreenshots: false,
+    quality: 80,
+    format: 'png'
+  },
+  BrowserLogsOnFail: {
+    enabled: true,
+    uniqueNames: true,
+    require: 'codeceptjs-browserlogs-plugin',
+    path: './outputs/logs',
+    includeConsoleLog: true,
+    includeNetworkLog: true,
+    includeErrorLog: true,
+    logFormat: 'json',
+    maxLogEntries: 1000,
+    filterLogTypes: ['error', 'warn']
+  }
+};
+```
 
-- `playwright.conf.js`: Settings for Playwright, such as browser configurations.
-- `rest.conf.js`: Configuration for REST API testing.
-- `graphql.conf.js`: Configuration for GraphQL API testing.
-- `plugins.conf.js`: Plugin settings for CodeceptJS.
-- `multiple.conf.js`: Configuration for running tests in parallel.
-- `gherkin.conf.js`: Gherkin settings for BDD support.
-- `include.conf.js`: Includes additional libraries and files.
-- `mocha.conf.js`: Mocha settings for test reporting.
+## Writing Tests
 
-### Output Directory (`outputs/`)
+### Example Test Scenario
 
-This directory stores test results, screenshots, and logs generated during test execution.
-
-- **Purpose**: Provides a location for storing test artifacts such as screenshots, logs, and reports.
-- **Usage**: Review the contents for debugging failed tests or analyzing test execution results.
-
-### Test Files
-
-Organize your test scenarios within the `tests/` directory. Follow a structured naming convention to maintain clarity.
-
-#### Example Test File: `login_test.js`
+Create a new test file in the `tests/` directory:
 
 ```javascript
 Feature('Login');
 
 Scenario('User can log in with valid credentials', (I) => {
-    I.amOnPage('/login');
-    I.fillField('Username', 'test_user');
-    I.fillField('Password', 'secure_password');
-    I.click('Login');
-    I.see('Welcome, test_user');
+  I.amOnPage('/login');
+  I.fillField('Username', 'test_user');
+  I.fillField('Password', 'secure_password');
+  I.click('Login');
+  I.see('Welcome, test_user');
 });
-```
-
-- **Purpose**: Contains test scenarios written in a BDD-style syntax, using CodeceptJS methods.
-- **Usage**: Create new test files within this directory to add more test scenarios to your suite.
-
-### Step Definitions (`step_definitions/`)
-
-Contains Gherkin step definitions that map to the CucumberJS feature files.
-
-#### Example Step Definition
-
-```javascript
-const { I } = inject();
-
-Given('I am on the login page', () => {
-    I.amOnPage('/login');
-});
-
-When('I fill in the login form with valid credentials', () => {
-    I.fillField('Username', 'test_user');
-    I.fillField('Password', 'secure_password');
-});
-
-Then('I should see the welcome message', () => {
-    I.see('Welcome, test_user');
-});
-```
-
-- **Purpose**: Provides the implementation of Gherkin steps, connecting feature files with CodeceptJS methods.
-- **Usage**: Add or modify step definitions to expand the coverage of feature files.
-
-### Package Files
-
-#### `package.json`
-
-Defines the project's dependencies, scripts, and metadata.
-
-```json
-{
-  "name": "automation-framework",
-  "version": "1.0.0",
-  "description": "A testing framework using CodeceptJS, Playwright, and CucumberJS.",
-  "main": "index.js",
-  "scripts": {
-    "test": "codeceptjs run",
-    "bdd": "codeceptjs run --grep '@bdd'"
-  },
-  "dependencies": {
-    "@codeceptjs/configure": "^1.0.1",
-    "axios": "^1.7.3",
-    "chai": "^4.5.0",
-    "codeceptjs": "^3.6.5",
-    "cucumber": "^6.0.7",
-    "exceljs": "^4.4.0",
-    "import-export": "^1.0.1",
-    "mongoose": "^8.5.2",
-    "playwright": "^1.45.3",
-    "puppeteer-core": "^22.15.0"
-  },
-  "devDependencies": {
-    "@codeceptjs/allure-legacy": "^1.0.2",
-    "@types/node": "^22.1.0",
-    "allure-commandline": "^2.29.0",
-    "allure-playwright": "^3.0.0-beta.7",
-    "codeceptjs-browserlogs-plugin": "^1.0.5",
-    "debug": "^4.3.6",
-    "moment": "^2.30.1"
-  },
-  "engines": {
-    "node": ">=20.16.0",
-    "npm": ">=10.8.1"
-  }
-}
-```
-
-- **Purpose**: Manages the project's dependencies, scripts, and configurations.
-- **Usage**: Use this file to add or update project dependencies and scripts.
-
-#### `package-lock.json`
-
-Auto-generated file containing the exact versions of
-
-installed dependencies.
-
-- **Purpose**: Ensures consistent dependency versions across environments.
-- **Usage**: Generally managed automatically, no need for manual changes.
-
-## Setting Up the Framework
-
-Follow these steps to set up the framework from scratch:
-
-### Prerequisites
-
-- **Node.js**: Ensure Node.js is installed (version >= 20.16.0).
-- **NPM**: Ensure npm is installed (version >= 10.8.1).
-
-### Installation
-
-1. **Clone the Repository**: Clone the project repository to your local machine.
-
-   ```bash
-   git clone https://github.com/yourusername/automation-framework.git
-   cd automation-framework
-   ```
-
-2. **Install Dependencies**: Use npm to install the project dependencies.
-
-   ```bash
-   npm install
-   ```
-
-3. **Configure Playwright**: Install browser dependencies for Playwright.
-
-   ```bash
-   npx playwright install
-   ```
-
-4. **Run Tests**: Execute the test suite using CodeceptJS.
-
-   ```bash
-   npm test
-   ```
-
-### Common Pitfalls
-
-- **Incompatible Node.js Version**: Ensure you have the correct Node.js version installed.
-- **Missing Dependencies**: Run `npm install` to resolve missing dependencies.
-- **Browser Installation Issues**: Use `npx playwright install` to fix browser-related issues.
-
-## Writing Test Scenarios
-
-### Example Scenario
-
-Below is an example of a typical test scenario using this framework:
-
-#### Feature File (`features/login.feature`)
-
-```gherkin
-Feature: Login
-
-  Scenario: Successful login with valid credentials
-    Given I am on the login page
-    When I fill in the login form with valid credentials
-    Then I should see the welcome message
 ```
 
 ### Step Definitions
 
-The step definitions for the above feature file are located in the `step_definitions/` directory and include the following code:
+For BDD-style testing, define Gherkin steps in the `step_definitions/` directory:
 
 ```javascript
 const { I } = inject();
 
 Given('I am on the login page', () => {
-    I.amOnPage('/login');
+  I.amOnPage('/login');
 });
 
 When('I fill in the login form with valid credentials', () => {
-    I.fillField('Username', 'test_user');
-    I.fillField('Password', 'secure_password');
+  I.fillField('Username', 'test_user');
+  I.fillField('Password', 'secure_password');
 });
 
 Then('I should see the welcome message', () => {
-    I.see('Welcome, test_user');
+  I.see('Welcome, test_user');
 });
 ```
 
-### Writing Your Tests
+## Running Tests
 
-- **Define Feature Files**: Write scenarios in Gherkin syntax within the `features/` directory.
-- **Create Step Definitions**: Implement Gherkin steps in JavaScript within the `step_definitions/` directory.
-- **Run Tests**: Execute the tests using the command `npm test`.
+To execute tests, use the following commands:
 
-## CodeceptJS and Playwright Methods
-
-### CodeceptJS Methods for Playwright
-
-CodeceptJS provides a range of methods for interacting with web pages using Playwright. Below are some common methods:
-
-- **`I.amOnPage(url)`**: Navigate to a specific URL.
-
-  ```javascript
-  I.amOnPage('https://example.com');
+- **Run All Tests**:
+  ```bash
+  npm test
   ```
 
-- **`I.fillField(field, value)`**: Fill a form field with a specified value.
-
-  ```javascript
-  I.fillField('Username', 'test_user');
+- **Run BDD Tests Only**:
+  ```bash
+  npm run bdd
   ```
 
-- **`I.click(locator)`**: Click on an element specified by a locator.
-
-  ```javascript
-  I.click('Submit');
+- **Run Headless Tests**:
+  ```bash
+  npm run test:headless
   ```
 
-- **`I.see(text)`**: Assert that a specific text is visible on the page.
+## Test Reporting
 
-  ```javascript
-  I.see('Welcome, test_user');
+### Mochawesome Reports
+
+Mochawesome is configured as the default reporter. It generates HTML and JSON reports.
+
+- **Generate Reports**:
+  ```bash
+  npm run generate-mochawesome-report
   ```
 
-- **`I.grabTextFrom(locator)`**: Retrieve text content from an element.
+### Allure Reports
 
-  ```javascript
-  const message = I.grabTextFrom('.alert');
+Allure provides a comprehensive reporting tool with trends and history.
+
+- **Generate Allure Reports**:
+  ```bash
+  npm run generate-allure-report-with-history
   ```
 
-- **`I.wait(seconds)`**: Pause test execution for a specified number of seconds.
-
-  ```javascript
-  I.wait(2);
+- **View Allure Reports**:
+  ```bash
+  npm run open-allure-report
   ```
 
-### Advanced Playwright Methods
+## Debugging and Troubleshooting
 
-In addition to CodeceptJS methods, Playwright offers advanced functionalities:
+- **Enable Debugging**: Run tests with `DEBUG=*` to see detailed logs.
+- **Screenshots on Failure**: Automatically taken and saved in `./outputs/screenshots/`.
+- **Browser Logs**: Captured and saved in `./outputs/logs/`.
 
-- **Handling Multiple Tabs**: Use Playwright's context to work with multiple tabs.
+## Contributing
 
-  ```javascript
-  const [newPage] = await Promise.all([
-    context.waitForEvent('page'),
-    page.click('a[target="_blank"]')
-  ]);
-  ```
+We welcome contributions! Please read our [Contributing Guidelines](CONTRIBUTING.md) for more information.
 
-- **Interacting with iframes**: Access and interact with elements within iframes.
+## Code of Conduct
 
-  ```javascript
-  const frame = page.frame({ name: 'iframe-name' });
-  await frame.click('#button');
-  ```
+This project adheres to a strict [Code of Conduct](CODE_OF_CONDUCT.md). Please read it to understand the standards expected of contributors.
 
-## Conclusion
+## Support
 
-The combination of CodeceptJS, Playwright, and CucumberJS provides a powerful framework for automated testing. This setup is ideal for modern web applications, offering flexibility, readability, and maintainability.
+For support and inquiries, please contact [hexdee606@gmail.com](mailto:hexdee606@gmail.com).
 
-### Contributing
+## License
 
-We welcome contributions from the community! Please read our [Contributing Guidelines](CONTRIBUTING.md) for more information.
-
-### Support
-
-For support and inquiries, please contact [yourname@yourdomain.com](mailto:yourname@yourdomain.com).
-
-
-
-Thank you for choosing our automation framework! We hope it serves your testing needs well.
-### Explanation and Additional Information
-
-1. **Introduction and Technologies Used**: Introduces the project and explains why the selected technologies are used together.
-
-2. **Project Structure**: Provides a detailed explanation of the files and directories in the project. This section makes it clear how each component fits into the overall framework.
-
-3. **Setting Up the Framework**: Guides users through setting up the project from scratch, including installation steps, configuration, and common pitfalls.
-
-4. **Writing Test Scenarios**: Offers a step-by-step process to write and execute test scenarios, with examples.
-
-5. **CodeceptJS and Playwright Methods**: Lists methods available in CodeceptJS for Playwright, providing examples of how to use them.
-
-6. **Conclusion**: Summarizes the benefits of the framework and provides contact information for support.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
