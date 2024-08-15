@@ -219,6 +219,6 @@ fabric.properties
 
 #other
 ./outputs
-./allure-report
-./allure-results
-./custom_helpers/new.js
+./allure-report/
+./allure-results/
+./outputs/allure-results/**/*.*

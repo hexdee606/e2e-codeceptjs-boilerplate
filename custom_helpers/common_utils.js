@@ -162,6 +162,36 @@ class common_utils extends Helper {
             }
         }
     }
+
+    /**
+     * Transforms a Gherkin table into an array of objects.
+     * Each object represents a row in the table, with keys corresponding to headers.
+     *
+     * @param {Object} table - The Gherkin table object containing rows and cells.
+     * @returns {Array<Object>} - An array of objects where each object represents a row from the table.
+     */
+    transformTable(table) {
+        // Extract rows from the table
+        const rows = table.rows;
+
+        // Extract and remove the header row from the rows array
+        const headerRow = rows.shift();
+
+        // Map the header row cells to their values to create an array of headers
+        const headers = headerRow.cells.map(item => item.value);
+
+        // Transform each row into an object using headers as keys
+        return rows.map(row => {
+            // Create an object for each row
+            let obj = {};
+            // Assign values from each cell to the corresponding header key
+            row.cells.forEach((item, index) => {
+                obj[headers[index]] = item.value;
+            });
+            return obj;
+        });
+    }
+
 }
 
 module.exports = new common_utils();

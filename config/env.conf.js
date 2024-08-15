@@ -2,13 +2,13 @@ const envConf = {
     'env': process.env.E2E_ENV || 'int',
     'int': {
         'web': {
-            host_url: 'https://automationexercise.com/'
+            host_url: 'https://automationexercise.com'
         },
-        'services': {
+        'restApi': {
+            end_point: 'https://petstore.swagger.io/v2'
+        },
+        'gql': {
             end_point: 'https://graphqlzero.almansi.me/api'
-        },
-        'servers': {
-            end_point: 'https://dummyapi.online/api/'
         }
     }
 };

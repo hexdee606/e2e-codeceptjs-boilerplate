@@ -93,7 +93,7 @@ module.exports = {
         // ],
     },
     stepByStepReport: {
-        enabled: true, // Enable or disable step-by-step reporting
+        enabled: false, // Enable or disable step-by-step reporting
         fullPageScreenshots: true, // Capture full-page screenshots instead of only the visible area
         screenshotsForAllFailures: true, // Take screenshots for all failures
         onFail: true, // Take a screenshot on failure
