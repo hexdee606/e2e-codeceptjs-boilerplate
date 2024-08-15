@@ -6,7 +6,7 @@ const downloadDir = path.join(__dirname, '../outputs/Download');
 
 module.exports = {
     url: host_url,
-    show: false, // Headless mode
+    show: false, // to run in headless make false
     browser: 'chromium',
     waitForTimeout: 30000, // Consistent timeout for all operations
     smartWait: 10000, // Smart wait for elements to appear
@@ -14,7 +14,7 @@ module.exports = {
     windowSize: '1280x1024',
     keepCookies: false,
     keepBrowserState: false,
-    waitForNavigation: "networkidle", // Wait until network is idle (all resources loaded)
+    waitForNavigation: "domcontentloaded", // Wait for the network to be idle (0 connections)
     viewport: {
         width: 1280,
         height: 1024

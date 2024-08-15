@@ -1,6 +1,6 @@
 const envURL = require('./env.conf');
 
-const gql_endpoint = envURL[envURL.env].services.end_point;
+const gql_endpoint = envURL[envURL.env].gql.end_point;
 
 module.exports = {
     endpoint: gql_endpoint,

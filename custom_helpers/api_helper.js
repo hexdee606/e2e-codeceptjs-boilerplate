@@ -4,7 +4,7 @@ const I = actor();
 const envURL = require('../config/env.conf'); // Import environment configuration
 
 // Extract the base API endpoint from the environment configuration
-const api_endpoint = envURL[envURL.env].servers.end_point;
+const api_endpoint = envURL[envURL.env].restApi.end_point;
 
 if (!api_endpoint) {
     throw new Error("API endpoint is not defined in the environment configuration.");
@@ -13,7 +13,7 @@ if (!api_endpoint) {
 /**
  * API Helper class for managing API requests and configurations.
  */
-class ApiHelper extends Helper{
+class ApiHelper extends Helper {
     constructor(config) {
         super(config);
         // Initialize common variables or settings
@@ -84,17 +84,17 @@ class ApiHelper extends Helper{
      * Sends an HTTP POST request to the specified endpoint.
      *
      * @param {string} endpoint - The specific endpoint to send the POST request to.
-     * @param {Object} [data={}] - Optional data to include in the request body.
+     * @param {Object} data - Optional data to include in the request body.
      * @param {Object} [headers={}] - Optional headers to include in the request.
      * @returns {Promise} - A promise that resolves with the response.
      */
-    sendPostRequest(endpoint = "/", data = {}, headers = {}) {
-        return I.sendPostRequest(endpoint, data, headers)
-            .then(response => response)
-            .catch(error => {
-                console.error("Error sending POST request:", error);
-                throw error;
-            });
+    async sendPostRequest(endpoint = "/", data = {}, headers = {}) {
+        try {
+            return await I.sendPostRequest(endpoint, data, headers);
+        } catch (error) {
+            console.error("Error sending POST request:", error);
+            throw error;
+        }
     }
 
     /**

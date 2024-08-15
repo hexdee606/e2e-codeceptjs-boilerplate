@@ -3,7 +3,7 @@ const I = actor();
 const envURL = require('../config/env.conf');
 
 // Extract the base API endpoint for GraphQL from the environment configuration
-const graphql_endpoint = envURL[envURL.env].services.end_point;
+const graphql_endpoint = envURL[envURL.env].gql.end_point;
 
 if (!graphql_endpoint) {
     throw new Error("GraphQL endpoint is not defined in the environment configuration.");

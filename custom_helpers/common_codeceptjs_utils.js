@@ -1,7 +1,7 @@
 const {actor, Helper} = require("codeceptjs"); // Import environment configuration
 const I = actor();
 const {assert} = require('chai'); // Import Chai assertion library for validating test conditions
-class common_codeceptjs_utils extends Helper{
+class common_codeceptjs_utils extends Helper {
     constructor(config) {
         super(config);
     }
@@ -15,6 +15,18 @@ class common_codeceptjs_utils extends Helper{
         I.waitForVisible(locator, sec);
         I.click(locator);
     }
+
+    /**
+     * Navigates to a specified URL, waits for an element to be visible, and then clicks it.
+     * @param {string} [url=""] - The URL to visit. Defaults to environment URL if empty.
+     * @param {string} locator - The locator of the element to click.
+     * @param {number} [sec=10] - The number of seconds to wait for the element to be visible.
+     */
+    async waitToNavigate(url = "", locator, sec = 10) {
+        await I.amOnPage(url);
+        await I.waitForVisible(locator, sec);
+    }
+
 
     /**
      * Waits for an element to be visible and then checks it if it is not already checked.

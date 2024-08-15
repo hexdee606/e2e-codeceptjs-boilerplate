@@ -1,3 +1,4 @@
 module.exports = {
-    test: 'hello'
+    api_response: {},
+    gql_response: {}
 };

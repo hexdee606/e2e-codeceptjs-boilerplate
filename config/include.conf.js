@@ -1,4 +1,4 @@
 module.exports = {
     I: './steps_file.js',
-    page: './src/pages/*.js',
+    page: './src/pages/*_page.js',
 };

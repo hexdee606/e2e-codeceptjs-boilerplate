@@ -1,6 +1,6 @@
 const envURL = require('./env.conf');
 
-const api_endpoint = envURL[envURL.env].services.end_point;
+const api_endpoint = envURL[envURL.env].restApi.end_point;
 
 module.exports = {
     endpoint: api_endpoint,
