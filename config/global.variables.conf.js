@@ -1,0 +1,10 @@
+global.api_helper = require("../custom_helpers/api_helper");
+global.browser_storage_utils = require("../custom_helpers/browser_storage_utils");
+global.common_codeceptjs_utils = require("../custom_helpers/common_codeceptjs_utils");
+global.common_utils = require("../custom_helpers/common_utils");
+global.excel_utils = require("../custom_helpers/excel_utils");
+global.graphql_helper = require("../custom_helpers/graphql_helper");
+global.keyboard_utils = require("../custom_helpers/keyboard_utils");
+global.strings_data = require("../custom_helpers/strings_data");
+global.test_data = require("../custom_helpers/test_data");
+global.variables = require("../custom_helpers/variables");

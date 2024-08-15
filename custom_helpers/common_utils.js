@@ -1,3 +1,4 @@
+const {actor, Helper} = require("codeceptjs"); // Import environment configuration
 const I = actor();
 const {assert} = require('chai'); // Import Chai assertion library for validating test conditions
 const ExcelJS = require('exceljs'); // Import exceljs for reading and writing Excel files
@@ -5,8 +6,9 @@ const path = require('path'); // Import path module for handling and transformin
 const fs = require('fs'); // Import fs module for file system operations
 const mongoose = require('mongoose');
 
-export class common_utils {
-    constructor() {
+class common_utils extends Helper {
+    constructor(config) {
+        super(config);
 
     }
 
@@ -161,3 +163,5 @@ export class common_utils {
         }
     }
 }
+
+module.exports = new common_utils();

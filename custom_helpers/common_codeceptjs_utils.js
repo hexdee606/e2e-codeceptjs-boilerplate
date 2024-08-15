@@ -1,8 +1,9 @@
-const I = actor()
+const {actor, Helper} = require("codeceptjs"); // Import environment configuration
+const I = actor();
 const {assert} = require('chai'); // Import Chai assertion library for validating test conditions
-export class common_codeceptjs_utils {
-    constructor() {
-
+class common_codeceptjs_utils extends Helper{
+    constructor(config) {
+        super(config);
     }
 
     /**
@@ -153,3 +154,5 @@ export class common_codeceptjs_utils {
         assert.equal(value[0], 'true');
     }
 }
+
+module.exports = new common_codeceptjs_utils();

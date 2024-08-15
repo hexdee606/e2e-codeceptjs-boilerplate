@@ -1,5 +1,6 @@
+const {actor, Helper} = require("codeceptjs"); // Import environment configuration
 const I = actor();
-const envURL = require('../config/env.conf'); // Import environment configuration
+const envURL = require('../config/env.conf');
 
 // Extract the base API endpoint for GraphQL from the environment configuration
 const graphql_endpoint = envURL[envURL.env].services.end_point;
@@ -11,8 +12,9 @@ if (!graphql_endpoint) {
 /**
  * GraphQL Helper class for managing GraphQL queries and mutations.
  */
-class GraphQLHelper {
-    constructor() {
+class GraphQLHelper extends Helper {
+    constructor(config) {
+        super(config);
         // Initialize common variables or settings
         this.defaultTimeout = 30000; // Default timeout for requests
     }

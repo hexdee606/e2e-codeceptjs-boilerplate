@@ -1,11 +1,9 @@
-const I = actor();
-const {assert} = require('chai'); // Import Chai assertion library for validating test conditions
+const {actor, Helper} = require("codeceptjs"); // Import environment configuration
 const ExcelJS = require('exceljs'); // Import exceljs for reading and writing Excel files
 const path = require('path'); // Import path module for handling and transforming file paths
-const fs = require('fs'); // Import fs module for file system operations
-const mongoose = require('mongoose');
 
-export class excel_utils {
+
+class excel_utils extends Helper{
     /**
      * Reads an Excel file and returns the workbook.
      * @param {string} filePath - Path to the Excel file.
@@ -247,4 +245,8 @@ export class excel_utils {
             return rowData;
         });
     }
+}
+
+module.exports = {
+    excel_utils: new excel_utils()
 }

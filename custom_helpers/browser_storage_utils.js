@@ -1,7 +1,9 @@
+const {actor, Helper} = require("codeceptjs"); // Import environment configuration
 const I = actor();
 
-export class browser_storage_utils {
-    constructor() {
+module.exports = new class browser_storage_utils extends Helper {
+    constructor(config) {
+        super(config);
     }
 
     /**
