@@ -31,10 +31,10 @@
     "step_definitions": "./src/step_definitions"
   },
   "scripts": {
-    "test:run": "codeceptjs run --plugins allure --config=./codecept.conf.js",
-    "test:report-serve": "allure serve ./allure-results --clean",
+    "test:run": "codeceptjs run --debug --plugins allure --config=./codecept.conf.js",
+    "test:report-serve": "allure serve ./outputs/allure-results --clean",
     "test:debug": "codeceptjs run --debug --grep '@debug' --config=./codecept.conf.js",
-    "test:report-generate": "allure generate ./allure-results --clean -o ./allure-report",
+    "test:report-generate": "allure generate ./outputs/allure-results --clean -o ./allure-report",
     "test:e2e": "codeceptjs run --plugins allure --config=./codecept.conf.js",
     "test:parallel": "codeceptjs run-multiple --all --plugins allure --config=./codecept.conf.js",
     "test:report-open": "allure open ./allure-report"
@@ -44,7 +44,6 @@
   },
   "dependencies": {
     "@codeceptjs/configure": "^1.0.1",
-    "@codeceptjs/helper": "^2.0.4",
     "axios": "^1.7.3",
     "chai": "^4.5.0",
     "codeceptjs": "^3.6.5",
@@ -62,7 +61,6 @@
     "allure-playwright": "^3.0.0-beta.7",
     "codeceptjs-browserlogs-plugin": "^1.0.5",
     "debug": "^4.3.6",
-    "eslint": "^9.8.0",
     "moment": "^2.30.1"
   },
   "engines": {

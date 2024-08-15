@@ -1,7 +1,7 @@
 module.exports = {
     allure: {
         enabled: true, // Enable or disable the allure plugin
-        outputDir: './allure-results', // Directory to save allure results
+        outputDir: './outputs/allure-results', // Directory to save allure results
         require: '@codeceptjs/allure-legacy', // Use the allure legacy reporter
 
         // Basic Configuration

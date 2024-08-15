@@ -1,4 +1,4 @@
 module.exports = {
     features: './src/features/*.feature',
-    steps: './src/step_definitions/*.js'
+    steps: './src/step_definitions/*_steps.js'
 };

@@ -1,4 +1,6 @@
+const {actor, Helper} = require("codeceptjs"); // Import environment configuration
 const I = actor();
+
 const envURL = require('../config/env.conf'); // Import environment configuration
 
 // Extract the base API endpoint from the environment configuration
@@ -11,8 +13,9 @@ if (!api_endpoint) {
 /**
  * API Helper class for managing API requests and configurations.
  */
-class ApiHelper {
-    constructor() {
+class ApiHelper extends Helper{
+    constructor(config) {
+        super(config);
         // Initialize common variables or settings
     }
 

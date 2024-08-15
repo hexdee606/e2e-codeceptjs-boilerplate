@@ -1,8 +1,9 @@
-const { Helper } = require('@codeceptjs/helper');
+const {actor, Helper} = require("codeceptjs"); // Import environment configuration
+const I = actor();
 const os = require('os');
-const { Key } = require('playwright');
+const {Key} = require('playwright');
 
-class KeyboardHelper extends Helper {
+class keyboard_utils extends Helper {
     constructor(config) {
         super(config);
         this.platform = os.platform();
@@ -67,7 +68,7 @@ class KeyboardHelper extends Helper {
 
     // Method to press keys with multiple combinations
     async pressKey(keyCombination) {
-        const { I } = this.helpers;
+        const {I} = this.helpers;
         await I.pressKey(this.mapKeyCombination(keyCombination));
     }
 
@@ -122,4 +123,4 @@ class KeyboardHelper extends Helper {
     }
 }
 
-module.exports = KeyboardHelper;
+module.exports = new keyboard_utils();

@@ -1,4 +1,3 @@
-const path = require('path');
 const playwrightConfig = require('./config/playwright.conf');
 const restConfig = require('./config/rest.conf');
 const graphqlConfig = require('./config/graphql.conf');
@@ -7,6 +6,8 @@ const multipleConfig = require('./config/multiple.conf');
 const gherkinConfig = require('./config/gherkin.conf');
 const includeConfig = require('./config/include.conf');
 const mochaConfig = require('./config/mocha.conf');
+const globalVariablesConfig = require('./config/global.variables.conf');
+
 exports.config = {
     output: './outputs',
     helpers: {
@@ -27,5 +28,6 @@ exports.config = {
         retries: 2
     },
     multiple: multipleConfig,
-    waitForNavigation: "load"
+    waitForNavigation: "load",
+    globalVariables: globalVariablesConfig
 };
