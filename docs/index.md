@@ -403,11 +403,11 @@ Browser logs are automatically captured for failed tests, providing insights int
 
 ## Contributing
 
-We welcome contributions from the community! Please follow our [Contributing Guidelines](CONTRIBUTING.md) to get started. Whether it’s a bug fix, new feature, or documentation improvement, your help is appreciated.
+We welcome contributions from the community! Please follow our [Contributing Guidelines](https://github.com/hexdee606/e2e-codeceptjs-boilerplate/blob/develop/CONTRIBUTING.md) to get started. Whether it’s a bug fix, new feature, or documentation improvement, your help is appreciated.
 
 ## Code of Conduct
 
-We enforce a strict [Code of Conduct](CODE_OF_CONDUCT.md) to ensure a welcoming and inclusive environment for all contributors. Please familiarize yourself with it before participating in this project.
+We enforce a strict [Code of Conduct](https://github.com/hexdee606/e2e-codeceptjs-boilerplate/blob/develop/CODE_OF_CONDUCT.md) to ensure a welcoming and inclusive environment for all contributors. Please familiarize yourself with it before participating in this project.
 
 ## Support
 
@@ -415,4 +415,4 @@ For any support or inquiries, feel free to reach out via email at [hexdee606@gma
 
 ## License
 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
+This project is licensed under the MIT License. See the [LICENSE](https://github.com/hexdee606/e2e-codeceptjs-boilerplate/blob/develop/LICENSE) file for more details.
