@@ -222,3 +222,4 @@ fabric.properties
 ./allure-report/
 ./allure-results/
 ./outputs/allure-results/**/*.*
+./outputs/**/*.*
